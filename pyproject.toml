@@ -1,0 +1,8 @@
+[project]
+name = "research_0_symbolic"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "openrouter>=0.1.3",
+]
+

@@ -1,0 +1,23 @@
+⊢ND
+⟦Σ:Types⟧{
+  weather_state≜{raining, not_raining}
+  street_state≜{dry,wet}
+  traction_state≜{stable,slippery}
+}
+⟦Γ:Inference⟧{
+  weather_state(raining)⇒street_state(wet)
+  street_state(wet)⇒traction_state(slippery)
+}
+⟦ω:Context⟧{
+  let w:weather_state := raining
+}
+⟦v:Context⟧{
+  let s:street_state := wet
+}
+⟦Φ:Constraint⟧{
+  Format: Symbolic_Only | Conclusion_Only
+  Strict: No_Prose | No_Intro | No_Outro
+}
+⊢Ε(ω) ↦ { s:street_state, t:traction_state | Γ, ω ⊢ s ∧ t }
+⊢Ε(v) ↦ { w:weather_state, s:street_state, t:traction_state | Γ, v ⊢ w ∧ s ∧ t }
+⊢⟦Γ⟧ street_state(wet) ⇒ weather_state(raining) ?
