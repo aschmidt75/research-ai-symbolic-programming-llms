@@ -1,3 +1,10 @@
 {
-    "01_csonnet4": "anthropic/claude-sonnet-4"
+    "01_csonnet45-r": {
+        "m": "anthropic/claude-sonnet-4.5",
+        "r": true
+    },
+    "02-kimik25": {
+        "m": "moonshotai/kimi-k2.5",
+        "r": "true"
+    }
 }
