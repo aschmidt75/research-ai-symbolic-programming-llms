@@ -37,12 +37,12 @@ Targeted LLMs are
     - Qwen 3 Max (qwen/qwen3-max)
     - Qwen 3 Coder (qwen/qwen3-coder)
     - Qwen 3 32B (qwen/qwen3-32b)
+- DeepSeek
+    - DeepSeek V3.2 (deepseek/deepseek-v3.2)
 - Mistral AI
     - Mistral Large 3 (mistralai/mistral-large-2512)
     - Mistral Small (mistralai/mistral-small-3.2-24b-instruct)
     - Ministral 3 8B (mistralai/ministral-8b-2512)
-- DeepSeek
-    - DeepSeek V3.2 (deepseek/deepseek-v3.2)
 - xAI   
     - Grok-4 Fast reasoning (x-ai/grok-4.1-fast)
 - NVidia

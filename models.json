@@ -7,17 +7,9 @@
         "m": "openai/gpt-5.2",
         "r": true
     },
-    "12-gpt-oss-120b": {
-        "m": "openai/gpt-oss-120b",
-        "r": false
-    },
     "13-gpt-oss-120b-r": {
         "m": "openai/gpt-oss-120b",
         "r": true
-    },
-    "14-gpt-oss-20b": {
-        "m": "openai/gpt-oss-20b",
-        "r": false
     },
     "15-gpt-oss-20b-r": {
         "m": "openai/gpt-oss-20b",
