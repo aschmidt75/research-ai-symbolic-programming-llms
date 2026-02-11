@@ -11,13 +11,14 @@
 ⟦ω:Context⟧{
   let w:weather_state := raining
 }
-⟦v:Context⟧{
+⟦ν:Context⟧{
   let s:street_state := wet
 }
 ⟦Φ:Constraint⟧{
   Format: Symbolic_Only | Conclusion_Only
   Strict: No_Prose | No_Intro | No_Outro
 }
+
 ⊢Ε(ω) ↦ { s:street_state, t:traction_state | Γ, ω ⊢ s ∧ t }
-⊢Ε(v) ↦ { w:weather_state, s:street_state, t:traction_state | Γ, v ⊢ w ∧ s ∧ t }
+⊢Ε(ν) ↦ { w:weather_state, s:street_state, t:traction_state | Γ, ν ⊢ w ∧ s ∧ t }
 ⊢⟦Γ⟧ street_state(wet) ⇒ weather_state(raining) ?

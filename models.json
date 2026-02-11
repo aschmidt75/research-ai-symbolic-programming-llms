@@ -1,10 +1,178 @@
 {
-    "01_csonnet45-r": {
+    "10_gpt52": {
+        "m": "openai/gpt-5.2",
+        "r": false
+    },
+    "11_gpt52-r": {
+        "m": "openai/gpt-5.2",
+        "r": true
+    },
+    "12-gpt-oss-120b": {
+        "m": "openai/gpt-oss-120b",
+        "r": false
+    },
+    "13-gpt-oss-120b-r": {
+        "m": "openai/gpt-oss-120b",
+        "r": true
+    },
+    "14-gpt-oss-20b": {
+        "m": "openai/gpt-oss-20b",
+        "r": false
+    },
+    "15-gpt-oss-20b-r": {
+        "m": "openai/gpt-oss-20b",
+        "r": true
+    },
+    "20_opus45": {
+        "m": "anthropic/claude-opus-4.5",
+        "r": false
+    },
+    "21_opus45-r": {
+        "m": "anthropic/claude-opus-4.5",
+        "r": true
+    },
+    "22_sonnet45": {
+        "m": "anthropic/claude-sonnet-4.5",
+        "r": false
+    },
+    "23_sonnet45-r": {
         "m": "anthropic/claude-sonnet-4.5",
         "r": true
     },
-    "02-kimik25": {
-        "m": "moonshotai/kimi-k2.5",
-        "r": "true"
+    "24_haiku45": {
+        "m": "anthropic/claude-haiku-4.5",
+        "r": false
+    },
+    "25_haiku45-r": {
+        "m": "anthropic/claude-haiku-4.5",
+        "r": true
+    },
+    "31_gemini3pro-r": {
+        "m": "google/gemini-3-pro-preview",
+        "r": true
+    },
+    "32_gemini3flash": {
+        "m": "google/gemini-3-flash-preview",
+        "r": false
+    },
+    "33_gemini3flash-r": {
+        "m": "google/gemini-3-flash-preview",
+        "r": true
+    },
+    "34_gemma3-4b": {
+        "m": "google/gemma-3n-e4b-it",
+        "r": false
+    },
+    "35_gemma3-4b-r": {
+        "m": "google/gemma-3n-e4b-it",
+        "r": true
+    },
+    "40_llama4mav": {
+        "m": "meta-llama/llama-4-maverick",
+        "r": false
+    },
+    "41_llama4mav-r": {
+        "m": "meta-llama/llama-4-maverick",
+        "r": true
+    },
+    "42_llama32-3b": {
+        "m": "meta-llama/llama-3.2-3b-instruct",
+        "r": false
+    },
+    "43_llama32-3b-r": {
+        "m": "meta-llama/llama-3.2-3b-instruct",
+        "r": true
+    },
+    "45_llama32-1b-r": {
+        "m": "meta-llama/llama-3.2-1b-instruct",
+        "r": true
+    },
+    "50_qwen3-max": {
+        "m": "qwen/qwen3-max",
+        "r": false
+    },
+    "51_qwen3-max-r": {
+        "m": "qwen/qwen3-max",
+        "r": true
+    },
+    "52_qwen3-coder": {
+        "m": "qwen/qwen3-coder",
+        "r": false
+    },
+    "53_qwen3-coder-r": {
+        "m": "qwen/qwen3-coder",
+        "r": true
+    },
+    "54_qwen3-32b": {
+        "m": "qwen/qwen3-32b",
+        "r": false
+    },
+    "55_qwen3-32b-r": {
+        "m": "qwen/qwen3-32b",
+        "r": true
+    },
+    "60_deepseek32": {
+        "m": "deepseek/deepseek-v3.2",
+        "r": false
+    },
+    "61_deepseek32-r": {
+        "m": "deepseek/deepseek-v3.2",
+        "r": true
+    },
+    "70_mistral-large-3": {
+        "m": "mistralai/mistral-large-2512",
+        "r": false
+    },
+    "71_mistral-large-3-r": {
+        "m": "mistralai/mistral-large-2512",
+        "r": true
+    },
+    "72_mistral-small-3.2-24b": {
+        "m": "mistralai/mistral-small-3.2-24b-instruct",
+        "r": false
+    },
+    "73_mistral-small-3.2-24b-r": {
+        "m": "mistralai/mistral-small-3.2-24b-instruct",
+        "r": true
+    },
+    "74_ministral-8b": {
+        "m": "mistralai/ministral-8b-2512",
+        "r": false
+    },
+    "75_ministral-8b": {
+        "m": "mistralai/ministral-8b-2512",
+        "r": true
+    },
+    "80_grok41f": {
+        "m": "x-ai/grok-4.1-fast",
+        "r": false
+    },
+    "80_grok41f-r": {
+        "m": "x-ai/grok-4.1-fast",
+        "r": true
+    },
+    "90_nemotron3-nano-30b": {
+        "m": "nvidia/nemotron-3-nano-30b-a3b",
+        "r": false
+    },
+    "91_nemotron3-nano-30b-r": {
+        "m": "nvidia/nemotron-3-nano-30b-a3b",
+        "r": true
+    },
+    "92_nemotron-nanon-12b": {
+        "m": "nvidia/nemotron-nano-12b-v2-vl:free",
+        "r": false
+    },
+    "93_nemotron-nanon-12b-r": {
+        "m": "nvidia/nemotron-nano-12b-v2-vl:free",
+        "r": true
+    },
+    "94_nemotron-nano-9b": {
+        "m": "nvidia/nemotron-nano-9b-v2:free",
+        "r": false
+    },
+    "94_nemotron-nano-9b-r": {
+        "m": "nvidia/nemotron-nano-9b-v2:free",
+        "r": true
     }
 }

@@ -1,5 +1,7 @@
 {
-    "correct_answer": true,
-    "symbolic_answer": true,
-    "contains_prose": false
+    "completeness": {
+        "1": 0,
+        "2": 0,
+        "3": 0
+    }
 }

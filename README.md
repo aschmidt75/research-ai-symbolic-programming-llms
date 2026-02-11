@@ -18,6 +18,37 @@ The setup aims to answer the following questions:
 - Which models can understand symbolic notation and can operate on it successfully?
 - Is there a difference between reasoning models and non-reasoning models?
 
+Targeted LLMs are
+- OpenAI
+    - GTP5.2 (openai/gpt-5.2)
+- Anthropic
+    - Opus 4.5 (anthropic/claude-opus-4.5)
+    - Sonnet 4.5 (anthropic/claude-sonnet-4.5)
+    - Haiku 4.5 (anthropic/claude-haiku-4.5)
+- Google
+    - Gemini 3 Pro (google/gemini-3-pro-preview)
+    - Gemini 3 Flash (google/gemini-3-flash-preview)
+    - Gemma 3 4B (google/gemma-3n-e4b-it)
+- Meta
+    - Llama 4 Maverick (meta-llama/llama-4-maverick)
+    - Llama 3.1 32B Instruct (meta-llama/llama-3.2-3b-instruct)
+    - Llama 3.2 1B Instruct (meta-llama/llama-3.2-1b-instruct)
+- Qwen
+    - Qwen 3 Max (qwen/qwen3-max)
+    - Qwen 3 Coder (qwen/qwen3-coder)
+    - Qwen 3 32B (qwen/qwen3-32b)
+- Mistral AI
+    - Mistral Large 3 (mistralai/mistral-large-2512)
+    - Mistral Small (mistralai/mistral-small-3.2-24b-instruct)
+    - Ministral 3 8B (mistralai/ministral-8b-2512)
+- DeepSeek
+    - DeepSeek V3.2 (deepseek/deepseek-v3.2)
+- xAI   
+    - Grok-4 Fast reasoning (x-ai/grok-4.1-fast)
+- NVidia
+    - nvidia/nemotron-3-nano-30b-a3b
+    - nvidia/nemotron-nano-12b-v2-vl:free
+    - nvidia/nemotron-nano-9b-v2:free
 
 ## Usage
 

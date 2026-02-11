@@ -1,7 +1,9 @@
 from openrouter import OpenRouter
+import logging
 import os
 
-def call_llm(prompt: str, model: str, reasoning: bool) -> str:
+def call_llm(prompt: str, model: str, reasoning: bool) -> object | None:
+    logger = logging.getLogger("runner")
     with OpenRouter(
         api_key=os.getenv("OPENROUTER_API_KEY")
     ) as client:
@@ -22,5 +24,16 @@ def call_llm(prompt: str, model: str, reasoning: bool) -> str:
             request_params["reasoning"] = {
                 "effort": "medium"
             }
-        response = client.chat.send(**request_params)
+        else:
+            request_params["reasoning"] = {
+                "effort": "none",
+                "enabled": False
+            }
+        logger.debug("Request params: %s", request_params)
+        try:
+            response = client.chat.send(**request_params)
+        except Exception:
+            logger.exception("LLM call failed for model %s", model)
+            return None
+            
         return response
