@@ -1,0 +1,34 @@
+{
+  "id": "gen-1770388525-OxW6XNzKUICaLGoV9gSv",
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0.0,
+      "message": {
+        "role": null,
+        "content": "A Natural Deduction (ND) proof!\n\nHere's the breakdown:\n\n1. ⊢ND:\n\t* ⊢ Civic bargaining parlance: [you want to add the final assumption to the chain]\n\t* Last inference must be of the form: Γ ⊢ Φ ⊢ ε\n2. ⟨Σ:Types⟩:\n\t* Δ = weather_state(raining) ⊢ street_state(wet) × traction_state(slippery)\n3. ⟨Γ:Inference⟩:\n\t* weather_state(raining) ⊢ street_state(wet) (A)\n\t* street_state(wet) ⊢ traction_state(slippery) (B)\n4. ⟨ω:Context⟩:\n\t* weather_state(w) = raining\n5. ⟨ν:Context⟩:\n\t* street_state(s) = wet\n6. ⟨Φ:Constraint⟩:\n\t* Format: Symbolic_Only | Conclusion_Only\n\t* Strict: No_Prose | No_Intro | No_Outro\n7. ⊢Ε(ω) ⊢ { s:street_state, t:traction_state | Γ, ω ⊢ s ∧ t } ⊆ { s:street_state, t:traction_state | Γ, ω ⊢ s ∧ t }\n8. ⊢Ε(ν) ⊢ { w:weather_state, s:street_state, t:traction_state | Γ, ν ⊢ w ∧ s ∧ t } ⊆ { w:weather_state, s:street_state, t:traction_state | Γ, ν ⊢ w ∧ s ∧ t }\n9. ⊢⊢ ![email_addresses:x(w):]time:7pt]{traffic:east]\n pedestrian walk]\n[speed e >=20]",
+        "refusal": null,
+        "reasoning": null
+      },
+      "logprobs": null
+    }
+  ],
+  "created": 1770388525.0,
+  "model": "meta-llama/llama-3.2-3b-instruct",
+  "object": null,
+  "usage": {
+    "completion_tokens": 355.0,
+    "prompt_tokens": 254.0,
+    "total_tokens": 609.0,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0.0,
+      "audio_tokens": 0.0
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0.0,
+      "cache_write_tokens": null,
+      "audio_tokens": 0.0,
+      "video_tokens": null
+    }
+  }
+}

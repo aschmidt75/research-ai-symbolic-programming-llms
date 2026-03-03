@@ -1,0 +1,33 @@
+{
+  "id": "gen-1770388344-kDDWYg5VrH4fsE1b4hq8",
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0.0,
+      "message": {
+        "role": null,
+        "content": "```\n⊢Ε(ω) ↦ { s = wet, t = slippery }\n\n⊢Ε(ν) ↦ { w = ⊥, s = wet, t = slippery }\n\n⊢⟦Γ⟧ street_state(wet) ⇒ weather_state(raining) ↦ ⊥\n```",
+        "refusal": null,
+        "reasoning": null
+      },
+      "logprobs": null
+    }
+  ],
+  "created": 1770388344.0,
+  "model": "anthropic/claude-sonnet-4.5",
+  "object": null,
+  "usage": {
+    "completion_tokens": 105.0,
+    "prompt_tokens": 360.0,
+    "total_tokens": 465.0,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0.0
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0.0,
+      "cache_write_tokens": 0.0,
+      "audio_tokens": null,
+      "video_tokens": null
+    }
+  }
+}

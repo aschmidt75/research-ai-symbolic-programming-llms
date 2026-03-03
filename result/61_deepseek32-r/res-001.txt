@@ -1,0 +1,17 @@
+**Ε(ω):**  
+\[
+\Gamma, \omega \vdash \text{street\_state(wet)} \land \text{traction\_state(slippery)}
+\]
+
+**Ε(ν):**  
+\[
+\Gamma, \nu \vdash \text{street\_state(wet)} \land \text{traction\_state(slippery)}
+\]  
+\[
+\Gamma, \nu \nvdash \text{weather\_state(raining)}
+\]
+
+**Implication:**  
+\[
+\Gamma \nvdash \text{street\_state(wet)} \rightarrow \text{weather\_state(raining)}
+\]

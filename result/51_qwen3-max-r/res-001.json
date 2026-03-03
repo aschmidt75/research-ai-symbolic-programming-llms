@@ -1,0 +1,34 @@
+{
+  "id": "gen-1770389001-SrNQGi1dKSdny9QEbuIU",
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0.0,
+      "message": {
+        "role": null,
+        "content": "No.",
+        "refusal": null,
+        "reasoning": null
+      },
+      "logprobs": null
+    }
+  ],
+  "created": 1770389001.0,
+  "model": "qwen/qwen3-max",
+  "object": null,
+  "system_fingerprint": null,
+  "usage": {
+    "completion_tokens": 2.0,
+    "prompt_tokens": 232.0,
+    "total_tokens": 234.0,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0.0
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0.0,
+      "cache_write_tokens": null,
+      "audio_tokens": 0.0,
+      "video_tokens": 0.0
+    }
+  }
+}

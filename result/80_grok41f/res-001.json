@@ -1,0 +1,33 @@
+{
+  "id": "gen-1770389369-G6cUBPfOhqicNuNcJllR",
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0.0,
+      "message": {
+        "role": null,
+        "content": "⊢⟦Γ⟧ street_state(wet) ⇒ weather_state(raining) ? **No**\n\n**Γ** entails `weather_state(raining) ⇒ street_state(wet)` but not the converse. \n\nFrom **ω**: `w = raining ⊢ s = wet ∧ t = slippery`\n\nFrom **ν**: `s = wet ⊬ w = raining` (w undetermined) ∧ `t = slippery`",
+        "refusal": null,
+        "reasoning": null
+      },
+      "logprobs": null
+    }
+  ],
+  "created": 1770389369.0,
+  "model": "x-ai/grok-4.1-fast",
+  "object": null,
+  "usage": {
+    "completion_tokens": 88.0,
+    "prompt_tokens": 404.0,
+    "total_tokens": 492.0,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0.0
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 157.0,
+      "cache_write_tokens": null,
+      "audio_tokens": null,
+      "video_tokens": null
+    }
+  }
+}

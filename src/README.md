@@ -20,7 +20,9 @@ The setup aims to answer the following questions:
 
 Targeted LLMs are
 - OpenAI
-    - GTP5.2 (openai/gpt-5.2)
+    - GPT5.2 (openai/gpt-5.2)
+    - openai/gpt-oss-120b
+    - openai/gpt-oss-20b
 - Anthropic
     - Opus 4.5 (anthropic/claude-opus-4.5)
     - Sonnet 4.5 (anthropic/claude-sonnet-4.5)

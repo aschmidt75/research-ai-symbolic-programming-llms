@@ -1,0 +1,3 @@
+$pdflatex = 'pdflatex -interaction=nonstopmode';
+$biber = 'biber %O %S';
+$makeindex = 'makeindex %O -s %S';

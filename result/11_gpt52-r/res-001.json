@@ -1,0 +1,48 @@
+{
+  "id": "gen-1770388314-yWWw13NakjQu6tXmNb0P",
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0.0,
+      "message": {
+        "role": null,
+        "content": "⊬⟦Γ⟧(street_state(wet) ⇒ weather_state(raining))",
+        "refusal": null,
+        "reasoning": "**Evaluating inference rules**\n\nI'm looking at the inference rules: if it's raining then it's wet, and if it's wet, then it's slippery. The user's question is whether \"wet\" implies \"raining.\" It doesn't follow from the given rules, so I need to output just the symbolic conclusion. It would simply be \"No\" or \"⊬,\" and possibly I could represent it with Γ ⊬ (street_state(wet) ⇒ weather_state(raining)). So, I’ll make sure to provide the symbolic output only!",
+        "reasoning_details": [
+          {
+            "summary": "**Evaluating inference rules**\n\nI'm looking at the inference rules: if it's raining then it's wet, and if it's wet, then it's slippery. The user's question is whether \"wet\" implies \"raining.\" It doesn't follow from the given rules, so I need to output just the symbolic conclusion. It would simply be \"No\" or \"⊬,\" and possibly I could represent it with Γ ⊬ (street_state(wet) ⇒ weather_state(raining)). So, I’ll make sure to provide the symbolic output only!",
+            "type": null,
+            "format": null,
+            "index": 0.0
+          },
+          {
+            "data": "gAAAAABphftf1J2cFf8TogJXekZz-d10EXoeA1lAnUjzc31GNJANSWmzW7aaKJddEOLLNpIbcaUmaDRUamexSjvP0LDKxXfeIQl2w_rmqO5KL6U2ypS4ZghJd9ENZ-A8gQP2BnfBkKOnlgQCSu1R5fU08WLQUOM_tUti_MmeWxe8G3TbMLM3a8IVrlSGbbqV0quXQyuzAtBwF8GFo6zgNF6lhjbL8V61BdATl9Jcfpvk272-Oul-2elZ8H-mAEHuSDyn_dAuPSvBtVV8mdQOBSbEVzGmW8XI-vmALoVIfCOwvIeXgWAYwdNwRkEUeBXreYLy30zjM5uOlXZOPiFp4_cPI95n0PFLQ_VT4j_RiPEUCgvK231cDI0jO6HkNjEuqjiV_s7WoH3HZyk1w2GAHPt5hnFnzfhYpVCX1TqudXwfiJQZtsqKw6wHJEYNMs7pxSr6IA15xbpXQbEZf--2FijwOZWiMi9_Q5OXvITry_2jbEJzHQZxb7R9ahH3H9JjJYgiwPwVW4zrK2r-90cPFe6S9Pkpm95wv4Jy1p1MxeLPfbfVm6PD2Dl07IoDNIqc5vkuOcxGAHS05kIiyb3kXUJ3Q86Mt5RCGeHJ8UybRGJ_pcP0PCT7WYMPY4uyTM8EJIaWwTpuKjVgY8N1KPND8AlPzdDbRujSwXiY5qpmpX4eTeIk2rUj7DzLnC38PtY-UpMX6Y13oyaSUJ0bjmZcXGFUQVH7Y82eSwswImlWYBuHtauO8V95i7HU1DD0Yx06QAADYb5aLnTgYyHIsDMwAjh4WDgJexV_b3WSM-0x4AVoI1UYtY0xcqgxqeS_6e96OR7i0rT25fpy2UdeEn97z1h3KuIs07qo4vrJyiD2wB5Qz8TVsHDUrrdtUxpZ36EKHlH2FnDFkCJhY6VWQEIyMcp2QJVjoIftRUpVNPJbivehSznHbw56RpqZTHzFnb4Y2pvb6UixQI3IjRP4NBkxhEtjiTGUpouZmUQ7HQNcexidd9RRPccEZbZDN2NkjZJZ5whYAS8paUGglZ8EnuPL36UGLGxvP49CncUAXS8NwkkbKIlUtsNGgx5kNtg2cuPMkmsq60Aoq1gbVMA3EOBWzpro3uuUVgu6cErgdRFnPi4dErhJLw1PnqKOLcxsR50Ag2MmdzBviryCToX0qKPAxdJS8HVEHPuycxElbAJC9SS1pl4D-zjYAcAqnQmCzWl_wKQjwFWHO90_WaOLBq8ax3BYs6o9O1iM5g==",
+            "type": null,
+            "id": "rs_03dcdfeee8ffd1a2016985fb5b4f5c81939787085b06f21fcd",
+            "format": null,
+            "index": 0.0
+          }
+        ]
+      },
+      "logprobs": null
+    }
+  ],
+  "created": 1770388314.0,
+  "model": "openai/gpt-5.2",
+  "object": null,
+  "usage": {
+    "completion_tokens": 104.0,
+    "prompt_tokens": 264.0,
+    "total_tokens": 368.0,
+    "completion_tokens_details": {
+      "reasoning_tokens": 77.0
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0.0,
+      "cache_write_tokens": null,
+      "audio_tokens": null,
+      "video_tokens": null
+    }
+  }
+}

@@ -1,0 +1,16 @@
+% Full-width abstract
+\renewcommand{\maketitlehookd}{%
+	\begin{abstract}
+		\noindent 
+This paper presents an empirical investigation into the ability of selected Large Language Models (LLMs) to understand and apply 
+symbolic notation from mathematical science and logical theories, such as Natural Deduction. 
+The study evaluates 43 LLMs from diverse vendors and architectures, testing their capacity to ingest and output results 
+in symbolic notation rather than prose. Each model is presented with a prompt containing a formal type and inference system, 
+contextual rules, and questions requiring symbolic reasoning. The experiment uses a Python-based testbed to standardize evaluation, 
+measuring both the correctness of responses and the adherence to symbolic output constraints.
+Results reveal significant variability in performance across models, with frontier models
+demonstrating superior correctness and symbolic output capabilities. Findings suggest that while some models excel in both 
+correctness and symbolic formalism, others struggle, highlighting the importance of model selection for agentic systems 
+requiring strict formalism.
+	\end{abstract}
+}

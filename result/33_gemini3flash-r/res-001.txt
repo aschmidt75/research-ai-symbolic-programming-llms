@@ -1,0 +1,3 @@
+Ε(ω) ↦ { street_state(wet), traction_state(slippery) }
+Ε(ν) ↦ ∅
+False

@@ -1,0 +1,41 @@
+{
+  "id": "gen-1770388398-Eh9d7CCR28DeUQGiDA1Z",
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0.0,
+      "message": {
+        "role": null,
+        "content": "⊢Ε(ω) ↦ { wet, slippery }\n⊢Ε(ν) ↦ { slippery }\n⊢⟦Γ⟧ ⊥",
+        "refusal": null,
+        "reasoning": null,
+        "reasoning_details": [
+          {
+            "data": "EjQKMgG+Pvb7SY7R7zperSSpMbPZxmg+SxNYDJDOaFFVfZbQgATYqwidDgekro8GmA08qIHP",
+            "type": null,
+            "format": null,
+            "index": 0.0
+          }
+        ]
+      },
+      "logprobs": null
+    }
+  ],
+  "created": 1770388398.0,
+  "model": "google/gemini-3-flash-preview",
+  "object": null,
+  "usage": {
+    "completion_tokens": 30.0,
+    "prompt_tokens": 254.0,
+    "total_tokens": 284.0,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0.0
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0.0,
+      "cache_write_tokens": 0.0,
+      "audio_tokens": 0.0,
+      "video_tokens": 0.0
+    }
+  }
+}

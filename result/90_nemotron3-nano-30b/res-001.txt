@@ -1,0 +1,142 @@
+**Answer**
+
+The entailment  
+
+\[
+\vdash\;[[\Gamma]]\; \text{street\_state(wet)} \;\Rightarrow\; \text{weather\_state(raining)} ?
+\]
+
+does **not** hold unconditionally in the formalism you have presented.  
+What can be derived is only a **reverse‑implication** that follows from the *explicit assumption* required by the strict logical consequence definition.
+
+---
+
+### 1.  What can be derived?
+
+1. **From the fixed rules in \(\Gamma\)** we have  
+
+   \[
+   \text{weather\_state(raining)} \;\Rightarrow\; \text{street\_state(wet)}.
+   \tag{R1}
+   \]
+
+2. By the second rule of \(\Gamma\) we also have  
+
+   \[
+   \text{street\_state(wet)} \;\Rightarrow\; \text{traction\_state(slippery)}.
+   \tag{R2}
+   \]
+
+3. By the two premises of the context definitions we know that in the concrete situation  
+
+   \[
+   w \equiv \text{weather\_state(raining)},\qquad
+   s \equiv \text{street\_state(wet)} .
+   \tag{Assume}
+   \]
+
+   Hence for the specific context \(\Gamma\cup\{\,\omega,\nu\,\}\) we can assert  
+
+   \[
+   \text{street\_state(wet)}\;\land\;\text{traction\_state(slippery)}\;\land\;
+   \text{weather\_state(raining)} .
+   \tag{3}
+   \]
+
+   In other words, **the concrete instantiation proves that the consequent is true**, not merely that it follows from the antecedent.
+
+---
+
+### 2.  Formal entailment definition
+
+You stipulated the strict constraint  
+
+\[
+\Phi:\; \text{Format: Symbolic\_Only } \land\; \text{Strict: No\_Prose } \land\; \text{No\_Intro } \land\; \text{No\_Outro}.
+\]
+
+Under this definition  
+
+\[
+\vdash \alpha
+\]
+
+means: *there exists a derivation in which every inference step is an explicit application of a clause of \(\Gamma\) (or of the rules governing the inference operator).*
+
+Therefore, to claim  
+
+\[
+\vdash [[\Gamma]]\;\text{street\_state(wet)} \;\Rightarrow\; \text{weather\_state(raining)},
+\]
+
+we would need a derivation rule that directly rewrites  
+
+\[
+\text{street\_state(wet)} \;\Rightarrow\; \text{weather\_state(raining)} 
+\]
+
+using only the clauses of \(\Gamma\). No such clause exists; the only conditional arrow in \(\Gamma\) goes from **weather** → **street**, not the other way round.
+
+---
+
+### 3.  What can be correctly asserted?
+
+- **Correct inference (with strict format):**  
+
+  \[
+  \vdash [\Gamma\cup\omega\cup\nu] \; \text{street\_state(wet)} \Rightarrow \top .
+  \]
+
+  (The consequent \(\top\) (“true”) is entailed because \(\text{street\_state(wet)}\) is given in the context.)
+
+- **If you specifically want a *reverse* entailment**, you must add an extra assumption, e.g.:
+
+  \[
+  \Gamma' \;:=\; \Gamma \cup \{\; \text{street\_state(wet)} \Rightarrow \text{weather\_state(raining) }\;\}.
+  \]
+
+  Only under this **added premise** does the entailment become provable:
+
+  \[
+  \vdash [[\Gamma']]\; \text{street\_state(wet)} \Rightarrow \text{weather\_state(raining)} .
+  \]
+
+  Without that assumption the entailment is **not** provable.
+
+---
+
+### 4.  Symbolic notation for the result you can claim
+
+In symbolic‑only, strictly formatted notation:
+
+\[
+\boxed{\;
+\vdash_{\,\{\text{weather\_state(raining)}\Rightarrow\text{street\_state(wet)}\}}
+\; \bigl[\text{street\_state(wet)} \land \text{traction\_state(slippery)}\bigr] 
+\;}
+\]
+
+or, equivalently,
+
+\[
+\boxed{\;
+\vdash\;\bigl(\text{street\_state(wet)}\;\rightarrow\;\text{weather\_state(raining)}\bigr)
+\;\;\text{is true only when an additional premise}\;
+\text{weather\_state(raining)}\;\text{is assumed.}
+\;}
+\]
+
+---
+
+### 5.  Summary
+
+- The formal system \(\Gamma\) only supports the forward direction  
+  \(\text{weather\_state(raining)} \Rightarrow \text{street\_state(wet)}\).  
+- Consequently, the reverse statement \(\text{street\_state(wet)} \Rightarrow \text{weather\_state(raining)}\) **is not entailed** unless you explicitly introduce the needed premise.  
+- Under the strict, purely symbolic proof regime you prescribed, no such premise is present, so the entailment is **false** (i.e., cannot be derived).  
+
+Thus:
+
+\[
+\boxed{\text{The statement } \vdash[[\Gamma]]\text{street\_state(wet)}\Rightarrow\text{weather\_state(raining)}\text{ is not provable in the given strict symbolic system.}}
+\]

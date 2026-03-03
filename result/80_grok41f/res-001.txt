@@ -1,0 +1,7 @@
+⊢⟦Γ⟧ street_state(wet) ⇒ weather_state(raining) ? **No**
+
+**Γ** entails `weather_state(raining) ⇒ street_state(wet)` but not the converse. 
+
+From **ω**: `w = raining ⊢ s = wet ∧ t = slippery`
+
+From **ν**: `s = wet ⊬ w = raining` (w undetermined) ∧ `t = slippery`

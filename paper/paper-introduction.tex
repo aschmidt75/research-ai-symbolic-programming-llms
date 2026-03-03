@@ -1,0 +1,23 @@
+Recent Large Language Models (LLMs) have been training on a diverse range of data sources, which presumable include works of 
+mathematical science and logical theories such as Natural Deduction and Category Theory. It has already been demonstrated
+that these models can understand symbolic notation \autocite{vangassen2026}.
+
+The inclusion of such material in their training datasets raises several 
+questions regarding the nature of their reasoning capabilities and the potential implications for use cases in the 
+field of artificial intelligence.
+
+This paper is a empirical investigation into how well selected LLMs can understand and apply symbolic notation and concepts from mathematical science
+and logical theories. The experiment is run of a set of 42 selected LLMs ranging from different parameter sizes, vendors and architectures. 
+Each LLM is presented with a prompt formulated in symbolic notation; a story context and few rules; and a question regarding 
+the presented context that requires an application of the presented rules. 
+
+\subsection{Research Questions}
+
+This paper tries to adress the following research questions:
+\begin{itemize}
+    \item How well do LLMs understand and apply symbolic notation from mathematical science and logical theories?
+    \item How well can LLMs output results in symbolic notation instead of prose language?
+\end{itemize}
+
+The ability for both ingesting and outputting results in symbolic notation is important for the development of 
+agentic systems which require stricter formalism and which want to explicitely keep prose language out of their processes.

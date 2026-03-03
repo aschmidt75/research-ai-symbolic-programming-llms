@@ -1,0 +1,164 @@
+This section outlines the experimental design anbd the testbed used.
+
+\subsection{Overview}
+The experiment is designed to test the understanding and application of symbolic notation by LLMs. Each LLM is presented with a prompt 
+formulated in symbolic notation, a story context, and a set of rules. The prompt includes a question that requires the application of the 
+presented rules. The results are evaluated based on the accuracy of the LLM's response in both understanding the symbolic notation and 
+applying the rules correctly.
+
+The experiment is conducted using a Python-based testbed for LLMs \autocite{aisymbolicprogllms}, which provides a standardized 
+environment for testing and evaluating the performance of LLMs on symbolic notation tasks. The same actions are carried out for the list of 
+selected LLMs as per Appendix \nameref{app:llms}
+
+The testbed includes a set of 42 selected LLMs ranging from different parameter sizes, vendors, and architectures. 
+Each LLM is tested on a set of 100 prompts, each formulated in symbolic notation, with a story context and a set of rules. 
+The prompts are designed to test the LLM's understanding of symbolic notation and its ability to apply the rules correctly.
+
+The results of the experiment are analyzed to determine the performance of the LLMs in understanding and applying symbolic notation. 
+The analysis includes the accuracy of the LLM's response in both understanding the symbolic notation and applying the rules correctly. 
+The results are compared across different parameter sizes, vendors, and architectures to identify any trends or patterns in the performance of the LLMs.
+
+The experiment aims to provide insights into the capabilities of LLMs in understanding and applying symbolic notation, which is crucial 
+for the development of agentic systems that require stricter formalism and explicit exclusion of prose language from their processes.
+
+\subsection{Models}
+The selection of language models covers different vendors (OpenAI, Anthropic, Google, Meta, Albibaba, DeepSeek, MistralAI, xAI, NVidia) and different 
+parameter sizes (smallest: 9B, largest from leading frontier models). Models are queried twice with reasoning disabled and enabled, unless the API does not
+allow for disabling of reasoning mode. See Appendix "\nameref{app:llms}" on page \pageref{tab:models} for the full list of models.
+
+\subsection{Prompts}
+The only prompt presented to the LLM is a small type and inference system, see \autoref{fig:symbolic-test-prompt}.
+It starts with an assertion that what follows is under Natural Deduction.
+Three states are declared: weather\_state (it is either raining or not raining), 
+street\_state (the street is either dry or wet), and traction\_state 
+(the street is either stable or slippery). Two inference rules state that if and
+only if it is raining, the street is wet. And if and only if the street is wet,
+the traction is slippery.
+
+Two contexts $\omega$ and $\nu$ let a weather\_state w be raining and a street\_state s be wet.
+
+A constraint is added to explicitly ask the model to output only symbolic notation, and only the conclusion.
+Furthermore, a "No\_Prose" constraint is given as an additional hint.
+
+The block ends with three questions to be answered. The first two are evaluations of the contexts $\omega$ and $\nu$. 
+LMs are expected to output the evaluated context, including the states. The last question asks if a certain deduction can be derived from the rulebase:
+
+\begin{figure}[h]
+  \begin{tcolorbox}[title=Symbolic test prompt, colback=white, colframe=black]
+
+
+\[
+\begin{array}{l}
+\vdash \text{ND} \\
+\llbracket \Sigma : \text{Types} \rrbracket \{ \\
+\quad \text{weather\_state} \triangleq \{ \text{raining, not\_raining} \} \\
+\quad \text{street\_state} \triangleq \{ \text{dry, wet} \} \\
+\quad \text{traction\_state} \triangleq \{ \text{stable, slippery} \} \\
+\} \\
+\llbracket \Gamma : \text{Inference} \rrbracket \{ \\
+\quad \text{weather\_state(raining)} \Rightarrow \text{street\_state(wet)} \\
+\quad \text{street\_state(wet)} \Rightarrow \text{traction\_state(slippery)} \\
+\} \\
+\llbracket \omega : \text{Context} \rrbracket \{ \\
+\quad \text{let } w : \text{weather\_state} := \text{raining} \\
+\} \\
+\llbracket \nu : \text{Context} \rrbracket \{ \\
+\quad \text{let } s : \text{street\_state} := \text{wet} \\
+\} \\
+\llbracket \Phi : \text{Constraint} \rrbracket \{ \\
+\quad \text{Format: Symbolic\_Only } | \text{ Conclusion\_Only} \\
+\quad \text{Strict: No\_Prose } | \text{ No\_Intro } | \text{ No\_Outro} \\
+\} \\
+\\
+\vdash \text{E}(\omega) \mapsto \{ s : \text{street\_state}, t : \text{traction\_state} \mid \Gamma, \omega \vdash s \wedge t \} \\
+\vdash \text{E}(\nu) \mapsto \{ w : \text{weather\_state}, s : \text{street\_state}, t : \text{traction\_state} \mid \Gamma, \nu \vdash w \wedge s \wedge t \} \\
+\vdash \llbracket \Gamma \rrbracket \text{street\_state(wet)} \Rightarrow \text{weather\_state(raining)} \quad \text{?}
+\end{array}
+\]
+
+  \end{tcolorbox}
+  \caption{Symbolic test prompt: A formal notation for weather, street, and traction states with inference rules and constraints.}
+  \label{fig:symbolic-test-prompt}
+\end{figure}
+
+This concludes the prompt. It has further been ensured that the system context of the LLM query is empty.
+No preamble is used, above prompt is used as the only user question to the chat interface. 
+The output of the LLM thus depends solely on the given formal notation.
+
+\subsection{Test setup series of experiments}
+The test setup is a python script that iterates the defined model endpoints and uses OpenRouter\footnote{\url{https://openrouter.com}} to 
+run the models with the predefined prompt and parameters, then parse and analyze the responses using custom metrics.
+All results are written to text files and structured json files. 
+
+Two LLM calls are made per defined model. The first call takes the prompt as defined above and submit it as 
+user message to the chat endpoint. The system content message is explicitely left blank.
+If the model specification has the reasoning parameter set, the reasoning effort setting is set to \texttt{medium}, otherwise
+to \texttt{none} with reasoning enable flag set to \texttt{false}.
+The outcome of this call is stored to disk as the full JSON response and plain text for easier inspection.
+
+The second call is the review call and is always directed to the model \texttt{anthropic/claude-opus-4.5}. The aim of
+the review call is to get an evaluation score in the range of 0 to 10 for the two aspects of amount of symbolic notation present
+and amount of prose language present. This call also does not use a system message. The user message is constructed of
+the preamble, followed by the response of the first call, see \autoref{fig:review-preamble}
+
+\begin{figure}[H]
+  \begin{tcolorbox}[title=Review LLM call preamble/response/epilogue, colback=white, colframe=black]
+    Rate the following block regarding the following aspects:
+
+    \medskip
+    \begin{itemize}
+      \item does it purely contain symbolic, math notation (x/10)
+      \item how much prose does it contain (y/10)
+      \\<response from 1st call inserted here 1:1>
+      \\output in JSON ONLY, matching the following pattern:
+      \\\{
+      \\    "symbolic\_rating": \#\#\#,
+      \\    "prose\_rating": \#\#\#
+      \\\}
+    \end{itemize}
+  \end{tcolorbox}
+  \caption{Review LLM call including preamble, response to review, and epilogue}
+  \label{fig:review-preamble}
+\end{figure}
+
+The output of the review call is also stored on disk as-is.
+
+The source code of the complete test setup is a github repository and is available at \autocite{aisymbolicprogllms}.
+
+\subsection{Evaluation Assessments}
+For comparing the performance of the models, the following evaluations scores are used. The review call
+includes the symbolic rating and the prose rating. These indicate how well the response fits 
+the intended output format, where the ideal setting is considered to be of a very high symbolic 
+rating and a very low prose rating. 
+
+In addition, the response is evaluated for correctness ($\texttt{Corr}_3$) by 
+human inspection. For each of the original prompt's questions, a subjective measure is given
+depending on how accurate it was answered, but independently of the symbolic vs. prose rating.
+If the question has been answered correctly, 9 points are given. If the question has not been
+answered at all, 0 points are given.
+If the question has been answered partially, 5 points have been given. A partial answer in this
+context means that it does not contain all elements that have been asked for. 
+As an example of a specific run\footnotemark, the question on
+context $\nu$ asks for all elements of weather\_state, street\_state and traction\_state, but the
+response only contained the traction\_state element, but not the weather\_state and street\_state elements:
+
+\footnotetext{gen-1770388398-Eh9d7CCR28DeUQGiDA1Z" of google/gemini3flash}
+
+\[
+\begin{array}{l}
+\vdash \text{E}(\nu) \mapsto \{ \text{slippery} \}
+\end{array}
+\]
+
+This makes it a partial answer and receive 5 points. For ranking of results we define two indicators
+R1 and R2 as the difference and the sum of its respective parts:
+
+\[
+\begin{array}{l}
+R1 = {\text{symbolic\_rating} - \text{prose\_rating}} \\
+R2 = {\text{Corr}_{1} + \text{Corr}_{2} + \text{Corr}_{3}} \\
+\end{array}
+\]
+
+
+

@@ -1,0 +1,3 @@
+⊢Ε(ω) ↦ \{s=wet, t=slippery\}
+⊢Ε(ν) ↦ \{w=raining, s=wet, t=slippery; w=not_raining, s=wet, t=slippery\}
+⊬⟦Γ⟧ street_state(wet) ⇒ weather_state(raining)

@@ -1,0 +1,13 @@
+```
+⊢Ε(ω) ↦ { s:=wet, t:=slippery }
+  ∵ ω(raining) →Γ₁ wet →Γ₂ slippery ✓
+
+⊢Ε(ν) ↦ { s:=wet, t:=slippery, w:=⊥ }
+  ∵ ν(wet) →Γ₂ slippery ✓
+  ∵ ν(wet) ↛Γ raining ⊥ (Γ₁⁻¹ ∉ Γ)
+
+⊢⟦Γ⟧ street_state(wet) ⇒ weather_state(raining) ? 
+  ↦ ⊥
+  ∵ (P⇒Q) ⊬ (Q⇒P)
+  ∵ affirming_consequent ∈ fallacy
+```

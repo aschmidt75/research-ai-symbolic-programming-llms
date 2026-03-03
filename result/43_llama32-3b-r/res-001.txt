@@ -1,0 +1,24 @@
+A Natural Deduction (ND) proof!
+
+Here's the breakdown:
+
+1. ⊢ND:
+	* ⊢ Civic bargaining parlance: [you want to add the final assumption to the chain]
+	* Last inference must be of the form: Γ ⊢ Φ ⊢ ε
+2. ⟨Σ:Types⟩:
+	* Δ = weather_state(raining) ⊢ street_state(wet) × traction_state(slippery)
+3. ⟨Γ:Inference⟩:
+	* weather_state(raining) ⊢ street_state(wet) (A)
+	* street_state(wet) ⊢ traction_state(slippery) (B)
+4. ⟨ω:Context⟩:
+	* weather_state(w) = raining
+5. ⟨ν:Context⟩:
+	* street_state(s) = wet
+6. ⟨Φ:Constraint⟩:
+	* Format: Symbolic_Only | Conclusion_Only
+	* Strict: No_Prose | No_Intro | No_Outro
+7. ⊢Ε(ω) ⊢ { s:street_state, t:traction_state | Γ, ω ⊢ s ∧ t } ⊆ { s:street_state, t:traction_state | Γ, ω ⊢ s ∧ t }
+8. ⊢Ε(ν) ⊢ { w:weather_state, s:street_state, t:traction_state | Γ, ν ⊢ w ∧ s ∧ t } ⊆ { w:weather_state, s:street_state, t:traction_state | Γ, ν ⊢ w ∧ s ∧ t }
+9. ⊢⊢ ![email_addresses:x(w):]time:7pt]{traffic:east]
+ pedestrian walk]
+[speed e >=20]

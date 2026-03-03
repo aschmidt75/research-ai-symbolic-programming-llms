@@ -1,0 +1,8 @@
+```
+⊢Ε(ω) ↦ { s:street_state := wet, t:traction_state := slippery }
+
+⊢Ε(ν) ↦ { w:weather_state := ⊥, s:street_state := wet, t:traction_state := slippery }
+
+⊢⟦Γ⟧ street_state(wet) ⇒ weather_state(raining) : ⊬
+  (* Affirming the consequent; Γ lacks converse rule *)
+```

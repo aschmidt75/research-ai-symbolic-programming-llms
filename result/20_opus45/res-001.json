@@ -1,0 +1,33 @@
+{
+  "id": "gen-1770388321-l9IqfYnswLgbUeXZeenl",
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0.0,
+      "message": {
+        "role": null,
+        "content": "```\n⊢Ε(ω) ↦ { s:street_state := wet, t:traction_state := slippery }\n\n⊢Ε(ν) ↦ { w:weather_state := ⊥, s:street_state := wet, t:traction_state := slippery }\n\n⊢⟦Γ⟧ street_state(wet) ⇒ weather_state(raining) : ⊬\n  (* Affirming the consequent; Γ lacks converse rule *)\n```",
+        "refusal": null,
+        "reasoning": null
+      },
+      "logprobs": null
+    }
+  ],
+  "created": 1770388322.0,
+  "model": "anthropic/claude-opus-4.5",
+  "object": null,
+  "usage": {
+    "completion_tokens": 142.0,
+    "prompt_tokens": 360.0,
+    "total_tokens": 502.0,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0.0
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0.0,
+      "cache_write_tokens": 0.0,
+      "audio_tokens": null,
+      "video_tokens": null
+    }
+  }
+}

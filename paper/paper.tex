@@ -1,0 +1,96 @@
+\PassOptionsToPackage{nopatch=footnote}{microtype}
+\PassOptionsToPackage{style=authoryear, backend=biber}{biblatex}
+\documentclass[
+	a4paper, % Paper size, use either a4paper or letterpaper
+	10pt, % Default font size, can also use 11pt or 12pt, although this is not recommended
+	twoside, % Two side traditional mode where headers and footers change between odd and even pages, comment this option to make them fixed
+]{LTJournalArticle}
+
+\usepackage{needspace}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{colortbl}
+\usepackage{ltablex}
+\keepXColumns          % keep all columns at their natural width
+\usepackage{biblatex}
+\usepackage{multirow}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{stmaryrd}
+\usepackage{hyperref}     
+\addbibresource{paper.bib} % BibLaTeX bibliography file
+
+\runninghead{Ability of selected Large Language Models to process symbolic Math notation} % A shortened article title to appear in the running head, leave this command empty for no running head
+
+\footertext{\textit{...} (2026) ...} % Text to appear in the footer, leave this command empty for no footer text
+
+\raggedbottom
+
+\setcounter{page}{1} % The page number of the first page, set this to a higher number if the article is to be part of an issue or larger work
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\title{Ability of selected Large Language Models to process symbolic Math notation} % Article title, use manual lines breaks (\\) to beautify the layout
+
+% Authors are listed in a comma-separated list with superscript numbers indicating affiliations
+% \thanks{} is used for any text that should be placed in a footnote on the first page, such as the corresponding author's email, journal acceptance dates, a copyright/license notice, keywords, etc
+\author{%
+	Andreas Schmidt\textsuperscript{1}
+ }
+
+% Affiliations are output in the \date{} command
+\date{\footnotesize\textsuperscript{\textbf{1}}Independent Researcher; \\ aschmidt75@proton.me}
+
+\input{./paper-abstract.tex}
+
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle % Output the title section
+
+%----------------------------------------------------------------------------------------
+%	ARTICLE CONTENTS
+%----------------------------------------------------------------------------------------
+
+\section{Introduction}
+
+\input{./paper-introduction.tex}
+
+\section{Methodology}
+
+\input{./paper-methodology.tex}
+
+\section{Results}
+
+\input{./paper-results.tex}
+
+\section{Analysis}
+
+\input{./paper-analysis.tex}
+
+\section{Conclusion}
+
+\input{./paper-conclusion.tex}
+
+\input{./paper-appendix.tex}
+
+%----------------------------------------------------------------------------------------
+%	 REFERENCES
+%----------------------------------------------------------------------------------------
+
+\printbibliography % Output the bibliography
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
+

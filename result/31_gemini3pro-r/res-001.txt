@@ -1,0 +1,3 @@
+⊢Ε(ω) ↦ { s:street_state := wet, t:traction_state := slippery }
+⊢Ε(ν) ↦ { w:weather_state := ⊥, s:street_state := wet, t:traction_state := slippery }
+⊢⟦Γ⟧ ⊥

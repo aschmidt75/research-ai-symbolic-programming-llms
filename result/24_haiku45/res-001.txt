@@ -1,0 +1,38 @@
+# Natural Deduction Analysis
+
+## Query: ⊢⟦Γ⟧ street_state(wet) ⇒ weather_state(raining) ?
+
+**Result: ✗ Not derivable**
+
+### Justification
+
+The inference rule in Γ:
+```
+weather_state(raining) ⇒ street_state(wet)
+```
+
+This is a forward implication: raining → wet
+
+The query requests the converse:
+```
+street_state(wet) ⇒ weather_state(raining)
+```
+
+This is: wet → raining
+
+### Formal Gap
+
+```
+Γ ⊢ (raining ⇒ wet)
+Γ ⊬ (wet ⇒ raining)
+```
+
+Converse implication is not logically entailed from a unidirectional rule without additional constraints or equivalence axioms.
+
+### Valid derivations from Γ:
+
+| From | Derivable |
+|------|-----------|
+| ω: raining | ⊢ street_state(wet) |
+| ω,ν: raining ∧ wet | ⊢ traction_state(slippery) |
+| ν: wet | ⊬ weather_state(raining) |

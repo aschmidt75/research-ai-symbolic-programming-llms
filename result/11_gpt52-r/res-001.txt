@@ -1,0 +1,1 @@
+⊬⟦Γ⟧(street_state(wet) ⇒ weather_state(raining))

@@ -1,0 +1,9 @@
+# ⊢⟦Γ⟧ street_state(wet) ⇒ weather_state(raining) ?
+
+**✗**
+
+---
+
+Γ contains: weather_state(raining) ⇒ street_state(wet)
+
+Converse implication not derivable from forward implication alone.

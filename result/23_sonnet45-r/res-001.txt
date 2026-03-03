@@ -1,0 +1,23 @@
+⊢Ε(ω):
+```
+ω: w = raining
+Γ₁: raining ⇒ wet
+∴ s = wet
+Γ₂: wet ⇒ slippery  
+∴ t = slippery
+```
+{ s:wet, t:slippery }
+
+⊢Ε(ν):
+```
+ν: s = wet
+Γ₂: wet ⇒ slippery
+∴ t = slippery
+w: ⊥ (wet ⇏ raining)
+```
+{ w:⊥, s:wet, t:slippery }
+
+⊢⟦Γ⟧ street_state(wet) ⇒ weather_state(raining):
+```
+⊥
+```
