@@ -5,8 +5,8 @@ The first group (\texttt{A}) with 27 points were able to respond correctly to al
 \medskip 
 
 A second group (\texttt{B}) with combined correctneess of 27, 23 and 19 responded to all three question, but some question were only
-answered partially. A third group (\texttt{C}) with combined correctness of 18, 9 answered correctly one or two question, where the last question
-was always answered correctly. A fourth group (\texttt{D}) with combined correctness of 5 or 0 was not able to answer any of the questions
+answered partially. A third group (\texttt{C}) (R2 = 18 or 9) includes models that answered one or two questions correctly, with the last question always answered correctly.
+A fourth group (\texttt{D}) with combined correctness of 5 or 0 was not able to answer any of the questions
 fully correctly or at all.
 
 \medskip 
@@ -21,12 +21,12 @@ In model ranks where both reasoning and non-reasoning can be compared, the runs 
 a large impact on correctness or rating than their non-reasoning counterparts with the following exceptions.
 \begin{itemize}
 \item \texttt{x-ai/grok-4.1-fast} reached a better ranking on symbolic output, but was in all cases correct and complete.
-\item The resonaning mode of \texttt{deepseek/deepseek-v3.2} achieved a higher symbolic rating, but was only partially correct on one question
+\item The reasoning mode of \texttt{deepseek/deepseek-v3.2} achieved a higher symbolic rating, but was only partially correct on one question
 \item For \texttt{google/gemini-3-flash-preview} both reasoning and non-reasoning modes achieved the same symbolic rating, but reasoning mode only answered two of three questions.
 \item \texttt{nvidia/nemotron-3-nano-30b-a3b} achieved a much higher symbolic rating, but only answered the last question in either modes.
 \end{itemize}
 
-Few models which produced correct output did not respond in UTF-8 regarding symbolic notation but in \LaTeX{} notation (Example: \texttt{deepseek/deepseek-v3.2})
+Some models produced correct output but used \LaTeX{} notation instead of UTF-8 symbols for symbolic notation. (Example: \texttt{deepseek/deepseek-v3.2})
 One model in the set did not produce any meaningful output: \texttt{meta-llama/llama-3.2-1b-instruct}.
 All models except \texttt{qwen/qwen3-max}, \texttt{meta-llama/llama-3.2-3b-instruct}, \texttt{meta-llama/llama-3.2-1b-instruct}, \texttt{google/gemma-3n-e4b-it} 
 answered at least the last questions correctly, either in symbolic notation or in prose.

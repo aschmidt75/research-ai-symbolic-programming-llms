@@ -11,7 +11,7 @@ sorted by columns R2 descending, R1 descending and tk total ascending.
 % Requires: \usepackage{ltablex} and \keepXColumns in preamble
 \begin{tabularx}{\linewidth}{llllllllllll}
   \hline
-  \textbf{Model Name} & $\textbf{tk}_{\textbf{compl}}$ & $\textbf{tk}_{\textbf{prompt}}$ & $\textbf{tk}_{\textbf{total}}$ & $\textbf{tk}_{\textbf{r}}$ & $\textbf{R}_{\textbf{symb}}$ & $\textbf{R}_{\textbf{prose}}$ & \textbf{R1} & $\textbf{C}_{\textbf{1}}$ & $\textbf{C}_{\textbf{2}}$ & $\textbf{C}_{\textbf{3}}$ & \textbf{R2} \\
+  \textbf{Model Name}\footnotemark & $\textbf{tk}_{\textbf{compl}}$ & $\textbf{tk}_{\textbf{prompt}}$ & $\textbf{tk}_{\textbf{total}}$ & $\textbf{tk}_{\textbf{r}}$ & $\textbf{R}_{\textbf{symb}}$ & $\textbf{R}_{\textbf{prose}}$ & \textbf{R1} & $\textbf{C}_{\textbf{1}}$ & $\textbf{C}_{\textbf{2}}$ & $\textbf{C}_{\textbf{3}}$ & \textbf{R2} \\
   \hline
   \endfirsthead
   \hline
@@ -66,4 +66,4 @@ sorted by columns R2 descending, R1 descending and tk total ascending.
   \scalebox{0.75}[1]{meta-llama/llama-3.2-1b-instruct} (+R)   & 241 & 255 & 496 & 0 & 3 & 8 & \cellcolor{gray!15}-5 & 0 & 0 & 0 & \cellcolor{gray!15}0 \\
   \scalebox{0.75}[1]{meta-llama/llama-3.2-1b-instruct}& 39222 & 247 & 39469 & 0 & 2 & 9 & \cellcolor{gray!15}-7 & 0 & 0 & 0 & \cellcolor{gray!15}0 \\
 \end{tabularx}
-
+\footnotetext{$\textbf{tk}_{\textbf{compl}}$: Completion Token; $\textbf{tk}_{\textbf{prompt}}$: Prompt Tokens; $\textbf{tk}_{\textbf{total}}$: Total Tokens used; $\textbf{tk}_{\textbf{r}}$: Reasoning Tokens (if used) ; }

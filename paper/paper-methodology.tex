@@ -1,4 +1,4 @@
-This section outlines the experimental design anbd the testbed used.
+This section outlines the experimental design and the testbed used.
 
 \subsection{Overview}
 The experiment is designed to test the understanding and application of symbolic notation by LLMs. Each LLM is presented with a prompt 
@@ -8,7 +8,7 @@ applying the rules correctly.
 
 The experiment is conducted using a Python-based testbed for LLMs \autocite{aisymbolicprogllms}, which provides a standardized 
 environment for testing and evaluating the performance of LLMs on symbolic notation tasks. The same actions are carried out for the list of 
-selected LLMs as per Appendix \nameref{app:llms}
+selected LLMs.
 
 The testbed includes a set of 42 selected LLMs ranging from different parameter sizes, vendors, and architectures. 
 Each LLM is tested on a set of 100 prompts, each formulated in symbolic notation, with a story context and a set of rules. 
@@ -23,22 +23,22 @@ for the development of agentic systems that require stricter formalism and expli
 
 \subsection{Models}
 The selection of language models covers different vendors (OpenAI, Anthropic, Google, Meta, Albibaba, DeepSeek, MistralAI, xAI, NVidia) and different 
-parameter sizes (smallest: 9B, largest from leading frontier models). Models are queried twice with reasoning disabled and enabled, unless the API does not
-allow for disabling of reasoning mode. See Appendix "\nameref{app:llms}" on page \pageref{tab:models} for the full list of models.
+parameter sizes (smallest: 9B, largest from leading frontier models). Each model was queried twice: once with reasoning disabled and once with reasoning enabled, where supported by the API.
+See Appendix "\nameref{app:llms}" on page \pageref{tab:models} for the full list of models.
 
 \subsection{Prompts}
 The only prompt presented to the LLM is a small type and inference system, see \autoref{fig:symbolic-test-prompt}.
 It starts with an assertion that what follows is under Natural Deduction.
-Three states are declared: weather\_state (it is either raining or not raining), 
-street\_state (the street is either dry or wet), and traction\_state 
+Three states are declared: \texttt{weather\_state} (it is either raining or not raining), 
+\texttt{street\_state} (the street is either dry or wet), and \texttt{traction\_state} 
 (the street is either stable or slippery). Two inference rules state that if and
 only if it is raining, the street is wet. And if and only if the street is wet,
 the traction is slippery.
 
-Two contexts $\omega$ and $\nu$ let a weather\_state w be raining and a street\_state s be wet.
+Two contexts $\omega$ and $\nu$ let a \texttt{weather\_state} w be raining and a \texttt{street\_state} s be wet.
 
 A constraint is added to explicitly ask the model to output only symbolic notation, and only the conclusion.
-Furthermore, a "No\_Prose" constraint is given as an additional hint.
+Furthermore, a \texttt{No\_Prose} constraint is explicitly included to discourage prose output.
 
 The block ends with three questions to be answered. The first two are evaluations of the contexts $\omega$ and $\nu$. 
 LMs are expected to output the evaluated context, including the states. The last question asks if a certain deduction can be derived from the rulebase:
