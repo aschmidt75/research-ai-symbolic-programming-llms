@@ -1,0 +1,5 @@
+⊢𝔸1.0.classify_b2c_order@2026-03-15
+Δ⊗λ ≡ 3
+∀output: output ∈ 𝔻oc ∧ ⊢wf(output)
+
+i'm asking for order #53748, when is it going to be delivered?
