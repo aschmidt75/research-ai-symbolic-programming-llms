@@ -49,6 +49,21 @@
     "173-mistral-medium-31-r": {
         "m": "mistralai/mistral-medium-3.1",
         "r": true
+    },    
+    "180-llama-4-mav": {
+        "m": "meta-llama/llama-4-maverick",
+        "r": false
+    },
+    "181-llama-4-mav-r": {
+        "m": "meta-llama/llama-4-maverick",
+        "r": true
+    },
+    "182-llama-33-70b-i": {
+        "m": "meta-llama/llama-3.3-70b-instruct",
+        "r": false
+    },
+    "183-llama-33-70b-i-r": {
+        "m": "meta-llama/llama-3.3-70b-instruct",
+        "r": true
     }    
-    
 }

@@ -1,12 +1,33 @@
 {
 
-    "180-llama-4-mav": {
-        "m": "meta-llama/llama-4-maverick",
-        "r": false
+    "111_openai_gpt_54-r": {
+        "m": "openai/gpt-5.4",
+        "r": "true"
     },
-    "181-llama-4-mav-r": {
-        "m": "meta-llama/llama-4-maverick",
-        "r": true
+    "112_openai_gpt_54-pro": {
+        "m": "openai/gpt-5.4-pro",
+        "r": "false"
+    },
+    "113_openai_gpt_54-pro-r": {
+        "m": "openai/gpt-5.4-pro",
+        "r": "true"
+    },
+    "114_openai_gpt_54-mini": {
+        "m": "openai/gpt-5.4-mini",
+        "r": "false"
+    },
+    "115_openai_gpt_54-mini-r": {
+        "m": "openai/gpt-5.4-mini",
+        "r": "true"
+    },
+    "116_openai_gpt_54-nano": {
+        "m": "openai/gpt-5.4-nano",
+        "r": "false"
+    },
+    "117_openai_gpt_54-nano-r": {
+        "m": "openai/gpt-5.4-nano",
+        "r": "true"
     }
+    
     
 }
