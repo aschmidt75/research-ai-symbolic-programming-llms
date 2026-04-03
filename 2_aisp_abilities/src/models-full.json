@@ -1,0 +1,54 @@
+{
+    "110_openai_gpt_54": {
+        "m": "openai/gpt-5.4"
+    },
+    "120_anthropic_claude_opus46": {
+        "m": "anthropic/claude-opus-4.6"
+    },
+    "121_anthropic_claude_sonnet46": {
+        "m": "anthropic/claude-sonnet-4.6"
+    },
+    "121_anthropic_claude_haiku45": {
+        "m": "anthropic/claude-haiku-4.5"
+    },
+    "130_google-gemini-25pro-r": {
+        "m": "google/gemini-2.5-pro",
+        "r": true
+    },
+    "130_google-gemini-31pro-r": {
+        "m": "google/gemini-3.1-pro-preview",
+        "r": true
+    },
+    "140_deepseek-v32": {
+        "m": "deepseek/deepseek-v3.2",
+        "r": false
+    },
+    "141_deepseek-r1-0528-r": {
+        "m": "deepseek/deepseek-r1-0528",
+        "r": true
+    },
+    "150_kimi-k25": {
+        "m": "moonshotai/kimi-k2.5"
+    },
+    "160-nemotron3s-120b": {
+        "m": "nvidia/nemotron-3-super-120b-a12b",
+        "r": true
+    },
+    "170-mistral-large3-2512": {
+        "m": "mistralai/mistral-large-2512",
+        "r": false
+    },
+    "171-mistral-large3-2512-r": {
+        "m": "mistralai/mistral-large-2512",
+        "r": true
+    },
+    "172-mistral-medium-31": {
+        "m": "mistralai/mistral-medium-3.1",
+        "r": false
+    },
+    "173-mistral-medium-31-r": {
+        "m": "mistralai/mistral-medium-3.1",
+        "r": true
+    }    
+    
+}

@@ -46,16 +46,20 @@ def write_response(
     file_index = (max(existing_indices) + 1) if existing_indices else 1
     output_path = os.path.join(model_dir, f"res-{file_index:03d}.json")
     with open(output_path, "w", encoding="utf-8") as output_file:
-        json.dump(response_payload, output_file, ensure_ascii=False, indent=2, default=str)
+        json.dump(
+            response_payload, output_file, ensure_ascii=False, indent=2, default=str
+        )
 
     output_text_path = output_path.removesuffix(".json") + ".txt"
     response_text = response.choices[0].message.content
     with open(output_text_path, "w", encoding="utf-8") as output_text_file:
         output_text_file.write(response_text)
 
-    #manual_review_source = "manual_review.json"
-    #manual_review_path = output_path.removesuffix(".json") + "-manual-review.json"
-    #shutil.copyfile(manual_review_source, manual_review_path)
+    manual_review_source = os.path.join(
+        os.path.dirname(__file__), "manualreview.template.json"
+    )
+    manual_review_path = output_path.removesuffix(".json") + "-manualreview.json"
+    shutil.copyfile(manual_review_source, manual_review_path)
 
     if review_text is not None:
         review_path = output_path.removesuffix(".json") + "-review.json"

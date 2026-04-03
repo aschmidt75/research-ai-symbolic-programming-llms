@@ -28,6 +28,7 @@ def call_llm(prompt: str, model: str, reasoning: bool) -> object | None:
     ) as client:
         request_params = {
             "model": model,
+            "max_tokens": 16384,
             "messages": [
                 {
                     "role": "system",

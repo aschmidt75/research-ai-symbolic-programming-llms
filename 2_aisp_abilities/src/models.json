@@ -1,6 +1,12 @@
 {
-    "20_opus46": {
-        "m": "anthropic/claude-opus-4.6",
+
+    "180-llama-4-mav": {
+        "m": "meta-llama/llama-4-maverick",
         "r": false
+    },
+    "181-llama-4-mav-r": {
+        "m": "meta-llama/llama-4-maverick",
+        "r": true
     }
+    
 }
