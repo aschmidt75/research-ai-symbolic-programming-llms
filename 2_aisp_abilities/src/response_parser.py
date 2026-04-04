@@ -21,6 +21,13 @@ _ERRORS_BLOCK_RE = re.compile(
     re.DOTALL,
 )
 
+# Matches the result block: ⟦ℜ:Result⟧{ ... }
+# The ℜ block tag may be followed by an optional colon and arbitrary label.
+_RESULT_BLOCK_RE = re.compile(
+    r"⟦ℜ(?::[^⟧]*)?⟧\s*\{(.*?)\}",
+    re.DOTALL,
+)
+
 # Matches the evidence block: ⟦Ε⟧⟨ ... ⟩
 # The block may span multiple lines and contain arbitrary content.
 _EVIDENCE_BLOCK_RE = re.compile(
@@ -107,7 +114,23 @@ def parse_response(aisp_text: str) -> dict:
         if _EPSILON_TOKEN_RE.search(errors_content):
             result["ε_reject"] = True
 
-    # --- Evidence block (last occurrence) ---
+    # --- Result block ⟦ℜ:Result⟧ (last occurrence) — primary source ---
+    result_matches = list(_RESULT_BLOCK_RE.finditer(fragment))
+    if result_matches:
+        result_content = result_matches[-1].group(1)
+        cleaned = _strip_comments_and_commas(result_content)
+        for kv_match in _KV_RE.finditer(cleaned):
+            key = kv_match.group(1).lower()
+            value = kv_match.group(2).strip()
+            if key == "label" and result["label"] is None:
+                result["label"] = value
+            elif key == "confidence" and result["confidence"] is None:
+                try:
+                    result["confidence"] = float(value)
+                except ValueError:
+                    pass
+
+    # --- Evidence block (last occurrence) — fallback for label/confidence ---
     evidence_matches = list(_EVIDENCE_BLOCK_RE.finditer(fragment))
     if evidence_matches:
         evidence_match = evidence_matches[-1]
@@ -117,20 +140,19 @@ def parse_response(aisp_text: str) -> dict:
         if _EPSILON_TOKEN_RE.search(evidence_content):
             result["ε_reject"] = True
 
-        # Clean up comments and trailing commas before parsing key/value pairs
-        cleaned = _strip_comments_and_commas(evidence_content)
-
-        for kv_match in _KV_RE.finditer(cleaned):
-            key = kv_match.group(1).lower()
-            value = kv_match.group(2).strip()
-
-            if key == "label" and result["label"] is None:
-                result["label"] = value
-            elif key == "confidence" and result["confidence"] is None:
-                try:
-                    result["confidence"] = float(value)
-                except ValueError:
-                    pass
+        # Only extract label/confidence from evidence if not already found in ⟦ℜ:Result⟧
+        if result["label"] is None or result["confidence"] is None:
+            cleaned = _strip_comments_and_commas(evidence_content)
+            for kv_match in _KV_RE.finditer(cleaned):
+                key = kv_match.group(1).lower()
+                value = kv_match.group(2).strip()
+                if key == "label" and result["label"] is None:
+                    result["label"] = value
+                elif key == "confidence" and result["confidence"] is None:
+                    try:
+                        result["confidence"] = float(value)
+                    except ValueError:
+                        pass
 
     return result
 
@@ -375,6 +397,58 @@ Some text in between.
     r13 = parse_response(text13)
     check("T13 ε_reject False (last errors block clean)", r13["ε_reject"], False)
     check("T13 label", r13["label"], "cls_J")
+
+    # ------------------------------------------------------------------
+    # Test 14: ⟦ℜ:Result⟧ block — primary extraction
+    # ------------------------------------------------------------------
+    text14 = """\
+𝔸1.0.test@2026-01-01
+⟦ℜ:Result⟧{
+  label      ≜ cls_A,
+  confidence ≜ 0.91
+}
+⟦Ε⟧⟨
+  ⊢wf
+⟩
+"""
+    r14 = parse_response(text14)
+    check("T14 label from ⟦ℜ:Result⟧", r14["label"], "cls_A")
+    check("T14 confidence from ⟦ℜ:Result⟧", r14["confidence"], 0.91)
+    check("T14 ε_reject False", r14["ε_reject"], False)
+
+    # ------------------------------------------------------------------
+    # Test 15: ⟦ℜ:Result⟧ takes priority over ⟦Ε⟧ for label/confidence
+    # ------------------------------------------------------------------
+    text15 = """\
+𝔸1.0.test@2026-01-01
+⟦ℜ:Result⟧{
+  label      ≜ cls_A,
+  confidence ≜ 0.95
+}
+⟦Ε⟧⟨
+  label      ≜ cls_B,
+  confidence ≜ 0.10,
+  ⊢wf
+⟩
+"""
+    r15 = parse_response(text15)
+    check("T15 label from ⟦ℜ:Result⟧ wins over ⟦Ε⟧", r15["label"], "cls_A")
+    check("T15 confidence from ⟦ℜ:Result⟧ wins over ⟦Ε⟧", r15["confidence"], 0.95)
+
+    # ------------------------------------------------------------------
+    # Test 16: fallback to ⟦Ε⟧ when ⟦ℜ:Result⟧ absent (backwards compat)
+    # ------------------------------------------------------------------
+    text16 = """\
+𝔸1.0.test@2026-01-01
+⟦Ε⟧⟨
+  label      ≜ cls_B,
+  confidence ≜ 0.55,
+  ⊢wf
+⟩
+"""
+    r16 = parse_response(text16)
+    check("T16 label fallback to ⟦Ε⟧", r16["label"], "cls_B")
+    check("T16 confidence fallback to ⟦Ε⟧", r16["confidence"], 0.55)
 
     # ------------------------------------------------------------------
     print(f"\n{passed} passed, {failed} failed out of {passed + failed} tests.")

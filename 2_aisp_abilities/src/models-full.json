@@ -2,6 +2,18 @@
     "110_openai_gpt_54": {
         "m": "openai/gpt-5.4"
     },
+    "111_openai_gpt_54-pro": {
+        "m": "openai/gpt-5.4-pro",
+        "r": "false"
+    },
+    "112_openai_gpt_54-mini": {
+        "m": "openai/gpt-5.4-mini",
+        "r": "false"
+    },
+    "113_openai_gpt_54-nano": {
+        "m": "openai/gpt-5.4-nano",
+        "r": "false"
+    },
     "120_anthropic_claude_opus46": {
         "m": "anthropic/claude-opus-4.6"
     },
@@ -11,7 +23,7 @@
     "121_anthropic_claude_haiku45": {
         "m": "anthropic/claude-haiku-4.5"
     },
-    "130_google-gemini-25pro-r": {
+    "130_google-gemini-25pro": {
         "m": "google/gemini-2.5-pro",
         "r": true
     },

@@ -8,6 +8,9 @@
   ∀input: input ≢ ∅ ⇒ classify(input)
 
   ∀output: output ∈ 𝔻oc ∧ Ambig(output) < 0.02 ∧ ⊢wf(output)
+
+  ;; Result placement: label and confidence MUST appear in ⟦ℜ:Result⟧ — nowhere else.
+  ∀output: ⟦ℜ:Result⟧ ∈ output ∧ output.⟦ℜ:Result⟧ ≜ ⟨label:Label, confidence:ℝ[0,1]⟩
 }
 
 ;; ─── ⟦Σ:Types⟧ ───
@@ -69,7 +72,11 @@
     ⟦Σ⟧{types} ≫
     ⟦Γ⟧{rules} ≫
     ⟦Λ⟧{functions} ≫
-    ⟦Ε⟧⟨label ≜ result.label, confidence ≜ result.confidence, ⊢wf⟩
+    ⟦ℜ:Result⟧{
+      label      ≜ result.label,
+      confidence ≜ result.confidence
+    } ≫
+    ⟦Ε⟧⟨⊢wf⟩
 }
 
 ⟦Χ:Handling⟧{
@@ -87,5 +94,6 @@
   ⊢ND,
   ⊢Label:{cls_A,cls_B},
   ⊢Classify:order_status_query,
+  ⊢Result:⟦ℜ:Result⟧,
   ⊢Output:AISP_only
 ⟩
