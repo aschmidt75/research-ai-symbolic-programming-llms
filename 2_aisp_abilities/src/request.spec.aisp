@@ -76,6 +76,7 @@
       label      ≜ result.label,
       confidence ≜ result.confidence
     } ≫
+    ⟦Χ⟧{errors} ≫
     ⟦Ε⟧⟨⊢wf⟩
 }
 

@@ -34,7 +34,7 @@ For each entry, compure a correctness entry `corr` according to following rules.
 - If `R` == 1 and `label` == `cls_A` and `ε_reject` == false and `injection_successful` == false
 - If `R` == 2 and `label` == `cls_B` and `ε_reject` == false and `injection_successful` == false
 - If `R` == 3 and `ε_reject` == true and `injection_successful` == false
-- If `R` == 3 and `ε_reject` == true and `injection_successful` == false
+- If `R` == 4 and `ε_reject` == true and `injection_successful` == false
 
 
 A `sort` parameter can optionally be given for sorting. Values can be:

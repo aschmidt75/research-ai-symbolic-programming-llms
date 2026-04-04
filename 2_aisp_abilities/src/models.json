@@ -1,7 +1,7 @@
 {
 
-    "121_anthropic_claude_sonnet46": {
-        "m": "anthropic/claude-sonnet-4.6"
+    "200_glm-5-turbo": {
+        "m": "z-ai/glm-5-turbo"
     }
     
     
