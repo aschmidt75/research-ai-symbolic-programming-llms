@@ -20,8 +20,11 @@
     "121_anthropic_claude_sonnet46": {
         "m": "anthropic/claude-sonnet-4.6"
     },
-    "121_anthropic_claude_haiku45": {
+    "122_anthropic_claude_haiku45": {
         "m": "anthropic/claude-haiku-4.5"
+    },
+    "123_anthropic_claude_opus47": {
+        "m": "anthropic/claude-opus-4.7"
     },
     "130_google-gemini-25pro": {
         "m": "google/gemini-2.5-pro",
@@ -80,6 +83,18 @@
     },
     "190_grok-41-fast": {
         "m": "x-ai/grok-4.1-fast"
+    },
+    "200_glm-5-turbo": {
+        "m": "z-ai/glm-5-turbo"
+    },
+    "210_minimax-2.7": {
+        "m": "minimax/minimax-m2.7",
+        "r": true
+    },            
+    "220_gemma4-31b": {
+        "m": "google/gemma-4-31b-it"
+    },
+    "221_gemma4-26b": {
+        "m": "google/gemma-4-26b-a4b-it"
     }
-            
-}
+ }

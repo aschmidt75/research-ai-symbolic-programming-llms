@@ -1,8 +1,9 @@
 {
 
-    "200_glm-5-turbo": {
-        "m": "z-ai/glm-5-turbo"
+
+     "123_anthropic_claude_opus47": {
+        "m": "anthropic/claude-opus-4.7"
     }
-    
+   
     
 }
