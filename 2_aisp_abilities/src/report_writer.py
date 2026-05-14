@@ -267,16 +267,25 @@ def print_table(records: list[dict]) -> None:
     console.print(table)
 
 
-def print_model_summary(records: list[dict]) -> None:
-    """Print a per-model correctness summary table."""
+def _build_model_stats(records: list[dict]) -> dict[str, dict]:
+    """Aggregate per-model correctness stats from *records*."""
     model_stats: dict[str, dict] = {}
     for r in records:
         m = r["model"] or "(unknown)"
         if m not in model_stats:
-            model_stats[m] = {"total": 0, "correct": 0}
+            model_stats[m] = {"total": 0, "correct": 0, "c1": False, "c2": False, "c3": False, "c4": False}
         model_stats[m]["total"] += 1
         if r["corr"]:
             model_stats[m]["correct"] += 1
+        req = r["R"]
+        if req in (1, 2, 3, 4) and r["corr"]:
+            model_stats[m][f"c{req}"] = True
+    return model_stats
+
+
+def print_model_summary(records: list[dict]) -> None:
+    """Print a per-model correctness summary table."""
+    model_stats = _build_model_stats(records)
 
     summary = Table(
         box=box.SIMPLE_HEAD,
@@ -288,6 +297,10 @@ def print_model_summary(records: list[dict]) -> None:
     summary.add_column("correct", justify="right")
     summary.add_column("total", justify="right")
     summary.add_column("rate", justify="right")
+    summary.add_column("c1", justify="center")
+    summary.add_column("c2", justify="center")
+    summary.add_column("c3", justify="center")
+    summary.add_column("c4", justify="center")
 
     for model, stats in sorted(model_stats.items(), key=lambda x: x[1]["correct"] / x[1]["total"] if x[1]["total"] else 0.0, reverse=True):
         total = stats["total"]
@@ -298,6 +311,10 @@ def print_model_summary(records: list[dict]) -> None:
             str(correct),
             str(total),
             f"{rate:.1%}",
+            "[green]Y[/green]" if stats["c1"] else "[dim]-[/dim]",
+            "[green]Y[/green]" if stats["c2"] else "[dim]-[/dim]",
+            "[green]Y[/green]" if stats["c3"] else "[dim]-[/dim]",
+            "[green]Y[/green]" if stats["c4"] else "[dim]-[/dim]",
         )
 
     console.print()
@@ -346,6 +363,38 @@ def print_csv(records: list[dict]) -> None:
         )
 
 
+SUMMARY_COLUMNS = ["model", "correct", "total", "rate", "c1", "c2", "c3", "c4"]
+
+
+def print_model_summary_csv(records: list[dict]) -> None:
+    """Write per-model correctness summary as CSV to stdout."""
+    model_stats = _build_model_stats(records)
+    writer = csv.writer(sys.stdout)
+    # blank separator line between the two sections
+    writer.writerow([])
+    writer.writerow(SUMMARY_COLUMNS)
+    for model, stats in sorted(
+        model_stats.items(),
+        key=lambda x: x[1]["correct"] / x[1]["total"] if x[1]["total"] else 0.0,
+        reverse=True,
+    ):
+        total = stats["total"]
+        correct = stats["correct"]
+        rate = correct / total if total else 0.0
+        writer.writerow(
+            [
+                model,
+                correct,
+                total,
+                f"{rate:.1%}",
+                "Y" if stats["c1"] else "",
+                "Y" if stats["c2"] else "",
+                "Y" if stats["c3"] else "",
+                "Y" if stats["c4"] else "",
+            ]
+        )
+
+
 # ---------------------------------------------------------------------------
 # Public API
 # ---------------------------------------------------------------------------
@@ -384,6 +433,7 @@ def generate_report(
 
     if output_type == "csv":
         print_csv(records)
+        print_model_summary_csv(records)
     else:
         print_table(records)
         if sort == "model":
