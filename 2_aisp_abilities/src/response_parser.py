@@ -21,10 +21,11 @@ _ERRORS_BLOCK_RE = re.compile(
     re.DOTALL,
 )
 
-# Matches the result block: ⟦ℜ:Result⟧{ ... }
+# Matches the result block: ⟦ℜ:Result⟧{ ... } or ⟦ℜ:Result⟧⟨ ... ⟩
 # The ℜ block tag may be followed by an optional colon and arbitrary label.
+# Both curly braces { } and angle brackets ⟨ ⟩ are accepted as delimiters.
 _RESULT_BLOCK_RE = re.compile(
-    r"⟦ℜ(?::[^⟧]*)?⟧\s*\{(.*?)\}",
+    r"⟦ℜ(?::[^⟧]*)?⟧\s*(?:\{(.*?)\}|⟨(.*?)⟩)",
     re.DOTALL,
 )
 
@@ -117,7 +118,8 @@ def parse_response(aisp_text: str) -> dict:
     # --- Result block ⟦ℜ:Result⟧ (last occurrence) — primary source ---
     result_matches = list(_RESULT_BLOCK_RE.finditer(fragment))
     if result_matches:
-        result_content = result_matches[-1].group(1)
+        m = result_matches[-1]
+        result_content = m.group(1) if m.group(1) is not None else m.group(2)
         cleaned = _strip_comments_and_commas(result_content)
         for kv_match in _KV_RE.finditer(cleaned):
             key = kv_match.group(1).lower()

@@ -81,8 +81,11 @@
         "m": "meta-llama/llama-3.3-70b-instruct",
         "r": true
     },
-    "190_grok-41-fast": {
-        "m": "x-ai/grok-4.1-fast"
+    "190_grok-43": {
+        "m": "x-ai/grok-4.3"
+    },
+    "191_grok-420": {
+        "m": "x-ai/grok-4.20"
     },
     "200_glm-5-turbo": {
         "m": "z-ai/glm-5-turbo"
